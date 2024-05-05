@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            border-style: groove;
+            border-radius: 2%;
+            border-width: 1ch;
+      
+            color: rgb(0, 0, 0);
+            border-color: black;
+            background-image: url(3458124.jpg);
+            background-size: cover;
+            font-size: larger;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="block1">        
+            <u><h2>SIGN UP</h2></u>
+            <form id="registrationForm">
+                <label for="username">USERNAME:</label>
+                <input type="text" id="username">
+                <br><br>
+                <label for="password">ENTER PASSWORD:</label>
+                <input type="password" id="password">
+                <br><br>
+                <label for="confpassword">CONFIRM PASSWORD:</label>
+                <input type="password" id="confirm">
+                <br><br>
+                <label for="email">ENTER EMAIL ID:</label>
+                <input type="text" id="email">
+                <br><br>
+                <label for="mobile">ENTER MOBILE NUMBER:</label>
+                <input type="text" maxlength="10">
+                <br><br>
+                <label for="age">ENTER AGE:</label>
+                <input type="number" name="" id="ageval">
+                <br><br>
+                <h3>ADDRESS BLOCK:</h3>
+                <br><br>
+                <label for="district">ENTER DISTRICT:</label>
+                <select>
+                    <option>CHENNAI</option>
+                    <option>CENGALPET</option>
+                    <option>TIRUVANNAMALAI</option>
+                </select>
+                <br><br>
+                <label for="subdis">ENTER SUB-DISTRICT:</label>
+                <input type="text">
+                <br><br>
+                <label for="pincode">ENTER PINCODE:</label>
+                <input type="number" name="" id="">
+                <br><br>
+                <label for="doorno">ENTER DOOR NUMBER:</label>
+                <input type="number" name="" id="">
+                <br><br>
+                <button type="submit" style="font-size:large;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;background-color: black;color: white;border-style: groove;">SIGN IN</button>
+            </form>
+        </div>
+    </center>
+
+    <script>
+        function valid(event) {
+            event.preventDefault(); 
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmpass=document.getElementById("confirm").value;
+            var age=document.getElementById("ageval").value;
+            var email=document.getElementById("email").value;
+            if (username.length < 8 || username.length > 32) {
+                window.alert("Username length must be between 8 and 32 characters")
+                return;
+            }
+            var specialCharacterRegex = /[!@#$%^&*(),.?":{}|<>]/;
+            if (!specialCharacterRegex.test(password)){
+                window.alert("Password must contain a special character")
+                return;
+            }
+           
+            if(password!==confirmpass)
+            {
+                window.alert("Password and confirm password must be same")
+                return;
+            }
+
+            var emailRegex = /^[A-Za-z0-9.-]+@[A-Za-z]+\.[a-z]{2,4}$/;
+            if (!emailRegex.test(email)) {
+                window.alert("Please enter a valid email")
+                return;
+            }
+
+            if(age<18){
+                window.alert("Age must be greater than 18")
+                return;
+            }
+            document.getElementById("registrationForm").submit();
+        }
+        
+        document.getElementById("registrationForm").addEventListener("submit", valid);
+    </script>
+</body>
+</html>

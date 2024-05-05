@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="js1.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <title>Forms Review</title>
+  </head>
+  <body>
+    <div class="main">
+      <form action="submission.html" method="POST">
+        <h1>GIVE US YOUR REVIEW!</h1>
+        <div class="input-group">
+          <label for="review">Where you satisfied with the customer service we provided</label>
+          <input type="text" name="review" id="review">
+        </div>
+        
+        <div class="input-group">
+          <label for="rrr">Interactivity of website</label>
+          <br>
+          <p>Average</p>
+          <input type="range" id="rrr" min="0" max="10">
+          <p>Good</p>
+        </div>
+        
+        <div class="input-group">
+          <label for="ques">Did you experience any problems accessing our vehicles or service?</label>
+          <br>
+          <input type="radio" name="yes" id="yes" value="yes">
+          <label for="ques" class="ques">Yes</label>
+          <input type="radio" name="no" id="no" value="no">
+          <label for="ques" class="ques">No</label>
+          <input type="radio" name="somewhat" id="somewhat" value="somewhat">
+          <label for="ques" class="ques">Somewhat</label>
+        </div>
+       
+        <div class="input_group">
+          <p>Customer Service:</p>
+          <input type="checkbox" id="responsiveSupport" name="customerService" value="responsive">
+          <label for="responsiveSupport">Responsive customer support</label><br>
+          <input type="checkbox" id="helpfulAssistance" name="customerService" value="helpful">
+          <label for="helpfulAssistance">Helpful assistance during the purchasing process</label><br>
+          <input type="checkbox" id="efficientResolution" name="customerService" value="efficient">
+          <label for="efficientResolution">Efficient resolution of inquiries or issues</label>
+        </div>
+        
+        <div class="input-group">
+          <label for="bun">Car you searched for..</label>
+          <select name="bun" id="bun">
+            <option value="Hyndai">Hyndai</option>
+            <option value="Kia">Kia</option>
+            <option value="Maruti">Maruti</option>
+            <option value="Honda">Honda</option>
+            <option value="MG Hector">MG Hector</option>
+            <option value="BMW">BMW</option>
+            <option value="Audi">Audi</option>
+            <option value="Mercedes Benz">Mercedes Benz</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="extra">Anything suggestions for improving our website..?</label>
+          <br>
+          <textarea id="extra" name="extra" rows="3" cols="40"></textarea>
+        </div>
+        <button type="button" onclick="submit()">Submit</button>  
+      </form>
+    </div>
+    <script>
+      function submit(){
+        var rev = document.getElementById("review").value;
+        document.write("Your review: " + rev);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    #container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="range"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    input[type="radio"], input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      resize: none;
+    }
+    button {
+      border: 1px solid #333;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: #555;
+    }
+    #submittedData {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <center>
+      <h3>Share Your Thoughts: Help Us Improve Your Experience</h3>
+      <label for="rating">Enter your rating for our website:</label><br>
+      <input type="range" id="rating" name="rating" min="1" max="10" onchange="updateRangeValue()">
+      <div id="rangeValue">5</div><br><br>
+      <label for="radio">You are interested to buy what?</label><br>
+      <input type="radio" name="interest" value="Mobiles"> Mobiles
+      <input type="radio" name="interest" value="Laptops"> Laptops
+      <input type="radio" name="interest" value="accessories"> Accessories
+      <br><br>
+      <label for="dropdown">What is your budget for the product?</label><br>
+      <select id="budget">
+        <option value=""></option>
+        <option value="50-60K">50-60K</option>
+        <option value="60-70K">60-70K</option>
+        <option value="70-80K">70-80K</option>
+        <option value="80-90K">80-90 K</option>
+        <option value="90K-1Lakh">90K-1Lakh</option>
+      </select>
+      <br><br>
+      <label for="checkbox">Which products do you have in your home?</label><br>
+      <input type="checkbox" name="products" value="Mobile"> Mobile
+      <input type="checkbox" name="products" value="Laptop"> Laptop
+      <input type="checkbox" name="products" value="Television"> Television
+      <input type="checkbox" name="products" value="Air conditioner"> Air conditioner
+      <br><br>
+      <label for="textbox">Please write something about us:</label><br>
+      <textarea id="feedbackText"></textarea><br><br>
+      <button type="button" onclick="submitForm()">Submit</button><br><br>
+      <div id="submittedData"></div>
+    </center>
+  </div>
+
+  <script>
+    function updateRangeValue() {
+      var rangeInput = document.getElementById('rating');
+      var rangeValue = document.getElementById('rangeValue');
+      rangeValue.innerText = rangeInput.value;
+    }
+
+    function submitForm() {
+      var rating = document.getElementById('rating').value;
+      var interest = document.querySelector('input[name="interest"]:checked').value;
+      var budget = document.getElementById('budget').value;
+      var products = [];
+      document.querySelectorAll('input[name="products"]:checked').forEach(function(checkbox) {
+        products.push(checkbox.value);
+      });
+      var feedbackText = document.getElementById('feedbackText').value;
+
+      document.write("<div id='container'>");
+      document.write("<center>");
+      document.write("<h3>Submitted Information:</h3>");
+      document.write("<p><b>Rating:</b> " + rating + "</p>");
+      document.write("<p><b>Interest:</b> " + interest + "</p>");
+      document.write("<p><b>Budget:</b> " + budget + "</p>");
+      document.write("<p><b>Products:</b> " + products.join(", ") + "</p>");
+      document.write("<p><b>Feedback:</b> " + feedbackText + "</p>");
+      document.write("</center>");
+      document.write("</div>");
+    }
+  </script>
+</body>
+</html>
